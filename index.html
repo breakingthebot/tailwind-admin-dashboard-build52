@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.0.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.1.0</span>
               </div>
             </a>
           </div>
@@ -95,6 +95,11 @@
             <a href="#permissions" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">📇</span>
               <span>RBAC Matrix</span>
+            </a>
+
+            <a href="#pricing" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">💳</span>
+              <span>Subscription Plans</span>
             </a>
 
             <button onclick="toggleModal('exportModal')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -251,7 +256,7 @@
             </div>
           </div>
 
-          <!-- SUB-SYSTEM STATUS PILL STRIP (NEW v2.0.0) -->
+          <!-- SUB-SYSTEM STATUS PILL STRIP -->
           <div id="strips" class="p-5 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-3">
             <div class="flex items-center justify-between">
               <h3 class="font-heading font-bold text-xs text-white uppercase tracking-wider">🎛️ Microservice Sub-System Status Strip</h3>
@@ -581,6 +586,71 @@
             </div>
           </div>
 
+          <!-- SAAS SUBSCRIPTION PLAN CARDS (NEW v2.1.0) -->
+          <div id="pricing" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
+            <div>
+              <h3 class="font-heading font-bold text-xl text-white">💳 SaaS Subscription Plan Cards</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Enterprise cluster tier billing options with feature comparisons</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Plan 1: Starter -->
+              <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between space-y-6">
+                <div>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Starter Tier</span>
+                  <h4 class="text-3xl font-heading font-extrabold text-white mt-2">$49 <span class="text-xs text-slate-400 font-normal">/ mo</span></h4>
+                  <p class="text-xs text-slate-400 mt-1">Ideal for dev sandbox &amp; testing</p>
+
+                  <ul class="mt-6 space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>Up to 5 Worker Pods</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>10GB Data Retention</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>Standard Community Support</span></li>
+                  </ul>
+                </div>
+
+                <button class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition-all border border-slate-700">Select Starter</button>
+              </div>
+
+              <!-- Plan 2: Professional (Featured) -->
+              <div class="p-6 rounded-xl bg-gradient-to-b from-indigo-900/40 to-slate-900 border-2 border-indigo-500/80 flex flex-col justify-between space-y-6 shadow-2xl relative">
+                <span class="absolute -top-3 right-4 px-3 py-0.5 rounded-full text-[10px] font-extrabold bg-indigo-600 text-white uppercase tracking-wider shadow-lg">MOST POPULAR</span>
+
+                <div>
+                  <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Professional Tier</span>
+                  <h4 class="text-3xl font-heading font-extrabold text-white mt-2">$199 <span class="text-xs text-slate-400 font-normal">/ mo</span></h4>
+                  <p class="text-xs text-slate-400 mt-1">Production scale for growth teams</p>
+
+                  <ul class="mt-6 space-y-2 text-xs text-slate-200">
+                    <li class="flex items-center space-x-2"><span class="text-indigo-400">✓</span><span>Up to 32 Worker Pods</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-indigo-400">✓</span><span>90GB Data Retention</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-indigo-400">✓</span><span>99.99% SLA Guarantee</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-indigo-400">✓</span><span>Priority Incident Webhooks</span></li>
+                  </ul>
+                </div>
+
+                <button class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-extrabold text-white transition-all shadow-lg shadow-indigo-600/30">Active Professional Plan</button>
+              </div>
+
+              <!-- Plan 3: Enterprise -->
+              <div class="p-6 rounded-xl bg-slate-900/80 border border-slate-700/60 flex flex-col justify-between space-y-6">
+                <div>
+                  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Enterprise Tier</span>
+                  <h4 class="text-3xl font-heading font-extrabold text-white mt-2">$499 <span class="text-xs text-slate-400 font-normal">/ mo</span></h4>
+                  <p class="text-xs text-slate-400 mt-1">Dedicated cluster &amp; custom SLA</p>
+
+                  <ul class="mt-6 space-y-2 text-xs text-slate-300">
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>Unlimited Worker Pods</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>365-Day Archival Retention</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>Dedicated SecOps Auditor</span></li>
+                    <li class="flex items-center space-x-2"><span class="text-emerald-400">✓</span><span>24/7 SLA Phone Hotline</span></li>
+                  </ul>
+                </div>
+
+                <button class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition-all border border-slate-700">Upgrade Enterprise</button>
+              </div>
+            </div>
+          </div>
+
           <!-- CUSTOMER DEPLOYMENTS DATA TABLE -->
           <div id="customers" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -809,13 +879,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:26:08] INFO: Sub-system status pill strip section integrated.</span>
-                <span class="text-slate-500">task-6065</span>
+                <span class="text-indigo-400">[22:27:48] INFO: SaaS subscription plan cards section integrated.</span>
+                <span class="text-slate-500">task-6099</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:24:54] INFO: Interactive modal dialog system integrated.</span>
-                <span class="text-slate-500">task-6042</span>
+                <span class="text-emerald-400">[22:26:08] INFO: Sub-system status pill strip section integrated.</span>
+                <span class="text-slate-500">task-6065</span>
               </div>
             </div>
           </div>
