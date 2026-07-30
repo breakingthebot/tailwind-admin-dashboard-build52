@@ -1,0 +1,28 @@
+{
+  "name": "tailwind-admin-dashboard-build52",
+  "version": "1.0.0",
+  "description": "Standalone, enterprise-grade Tailwind CSS Admin Dashboard featuring responsive utility-first layout, dark mode, interactive data tables, metrics, search filters, and analytics chart widgets without writing custom CSS.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "tailwindcss",
+    "admin-dashboard",
+    "utility-first",
+    "responsive-design",
+    "dark-mode",
+    "component-library",
+    "enterprise-dashboard",
+    "analytics-dashboard",
+    "frontend",
+    "vite"
+  ],
+  "author": "Breaking The Bot Multiverse Team",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
