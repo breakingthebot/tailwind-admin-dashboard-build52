@@ -5,11 +5,16 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2026-07-29
+
+### Added
+- Integrated **Interactive Confirmation Teardown Modal (`#teardownModal`)**.
+- Added danger zone cluster teardown modal overlay requiring input validation phrase `TEARDOWN`.
+
 ## [2.4.0] - 2026-07-29
 
 ### Added
 - Integrated **30-Day SLA Uptime Sparklines & Heatmap Grid (`#heatmap`)**.
-- Added 30-day historical operational uptime blocks with region averages and hover tooltips.
 
 ## [2.3.0] - 2026-07-29
 
