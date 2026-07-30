@@ -5,11 +5,16 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-07-29
+
+### Added
+- Integrated **Accordion System FAQ & Help Documentation (`#faq`)**.
+- Added collapsible FAQ architecture panels with rotating chevron icons and smooth transition states.
+
 ## [1.7.0] - 2026-07-29
 
 ### Added
 - Integrated **Infinite Activity Feed & Real-time Log Marquee (`#marquee`)**.
-- Added continuous horizontal scrolling marquee displaying system events with Tailwind keyframe animations and edge fade masks.
 
 ## [1.6.0] - 2026-07-29
 

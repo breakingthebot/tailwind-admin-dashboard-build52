@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.7.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.8.0</span>
               </div>
             </a>
           </div>
@@ -95,6 +95,11 @@
             <a href="#customers" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">👥</span>
               <span>Deployments Table</span>
+            </a>
+
+            <a href="#faq" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🗂️</span>
+              <span>Help &amp; FAQ</span>
             </a>
 
             <button onclick="toggleSlideOver()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -233,7 +238,7 @@
             </div>
           </div>
 
-          <!-- INFINITE ACTIVITY FEED & REAL-TIME LOG MARQUEE (NEW v1.7.0) -->
+          <!-- INFINITE ACTIVITY FEED & REAL-TIME LOG MARQUEE -->
           <div id="marquee" class="p-4 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl overflow-hidden relative">
             <div class="flex items-center space-x-3 mb-2 px-2">
               <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
@@ -638,6 +643,49 @@
             </div>
           </div>
 
+          <!-- ACCORDION SYSTEM FAQ & HELP DOCUMENTATION (NEW v1.8.0) -->
+          <div id="faq" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
+            <div>
+              <h3 class="font-heading font-bold text-xl text-white">🗂️ Enterprise Operations FAQ &amp; Architecture Documentation</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Frequently asked questions regarding ApexAdmin Tailwind CSS utility system and edge routing</p>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Item 1 -->
+              <div class="border border-slate-700/60 rounded-xl overflow-hidden bg-slate-900/60">
+                <button onclick="toggleFaq('faq1')" class="w-full p-4 text-left flex items-center justify-between text-xs font-bold text-white hover:bg-slate-800/50 transition-all">
+                  <span>How does ApexAdmin enforce utility-first Tailwind CSS without custom stylesheets?</span>
+                  <span id="faq1-icon" class="text-slate-400 transition-transform">▼</span>
+                </button>
+                <div id="faq1" class="hidden p-4 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50">
+                  ApexAdmin relies 100% on Tailwind CSS utility classes (`bg-slate-900`, `backdrop-blur-xl`, `border`, `rounded-2xl`, `grid`, `flex`, etc.). All layout boundaries, spacing scales, and dark mode variations are declared directly on HTML elements, eliminating custom CSS maintenance debt.
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="border border-slate-700/60 rounded-xl overflow-hidden bg-slate-900/60">
+                <button onclick="toggleFaq('faq2')" class="w-full p-4 text-left flex items-center justify-between text-xs font-bold text-white hover:bg-slate-800/50 transition-all">
+                  <span>What SLA uptime guarantees are monitored across global edge clusters?</span>
+                  <span id="faq2-icon" class="text-slate-400 transition-transform">▼</span>
+                </button>
+                <div id="faq2" class="hidden p-4 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50">
+                  ApexAdmin monitors active CDN clusters in `us-east-1`, `eu-west-1`, and `ap-east-1` with 99.99% uptime guarantees. Automated health checks execute every 15 seconds to trigger pod scaling upon traffic spikes.
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="border border-slate-700/60 rounded-xl overflow-hidden bg-slate-900/60">
+                <button onclick="toggleFaq('faq3')" class="w-full p-4 text-left flex items-center justify-between text-xs font-bold text-white hover:bg-slate-800/50 transition-all">
+                  <span>How are OAuth 2.0 passkey security tokens rotated?</span>
+                  <span id="faq3-icon" class="text-slate-400 transition-transform">▼</span>
+                </button>
+                <div id="faq3" class="hidden p-4 pt-0 text-xs text-slate-400 leading-relaxed border-t border-slate-800/50">
+                  Security tokens are signed using ECDSA keys and rotated every 3,600 seconds. Expired tokens trigger graceful re-authentication without dropping active user sessions.
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- SYSTEM SETTINGS FORM CONTROLS GRID -->
           <div id="settings" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
@@ -696,13 +744,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:21:14] INFO: Infinite live event marquee stream active.</span>
-                <span class="text-slate-500">task-5991</span>
+                <span class="text-cyan-400">[22:23:41] INFO: Accordion system FAQ &amp; help docs integrated.</span>
+                <span class="text-slate-500">task-6015</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:12:11] INFO: RBAC permission matrix section rendered.</span>
-                <span class="text-slate-500">task-5960</span>
+                <span class="text-indigo-400">[22:21:14] INFO: Infinite live event marquee stream active.</span>
+                <span class="text-slate-500">task-5991</span>
               </div>
             </div>
           </div>
@@ -800,7 +848,7 @@
       </div>
     </div>
 
-    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER & TOAST DISMISS) -->
+    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER, TOAST DISMISS & FAQ ACCORDION) -->
     <script>
       function toggleDarkMode() {
         const html = document.documentElement;
@@ -825,6 +873,18 @@
           toast.style.opacity = '0';
           toast.style.transform = 'translateY(10px)';
           setTimeout(() => toast.remove(), 300);
+        }
+      }
+
+      function toggleFaq(id) {
+        const item = document.getElementById(id);
+        const icon = document.getElementById(id + '-icon');
+        if (item.classList.contains('hidden')) {
+          item.classList.remove('hidden');
+          icon.style.transform = 'rotate(180deg)';
+        } else {
+          item.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
         }
       }
     </script>
