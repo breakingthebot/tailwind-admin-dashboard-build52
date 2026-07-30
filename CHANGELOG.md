@@ -5,11 +5,16 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-07-29
+
+### Added
+- Integrated **User Permissions & Role Management Matrix (`#permissions`)**.
+- Added Role-Based Access Control (RBAC) permission grid comparing Super Admin, DevOps Engineer, Security Auditor, and Billing Manager scopes.
+
 ## [1.5.0] - 2026-07-29
 
 ### Added
 - Integrated **Server Metric Gauges & CPU Load Indicators (`#gauges`)**.
-- Added 4 SVG circular progress rings showing CPU core load (84%), RAM memory allocation (62%), NVMe storage I/O (45%), and network bandwidth saturation (91%).
 
 ## [1.4.0] - 2026-07-29
 
