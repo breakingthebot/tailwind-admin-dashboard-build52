@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.8.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.9.0</span>
               </div>
             </a>
           </div>
@@ -92,6 +92,11 @@
               <span>RBAC Matrix</span>
             </a>
 
+            <button onclick="toggleModal('exportModal')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🪟</span>
+              <span>Export Modal</span>
+            </button>
+
             <a href="#customers" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">👥</span>
               <span>Deployments Table</span>
@@ -103,8 +108,8 @@
             </a>
 
             <button onclick="toggleSlideOver()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
-              <span class="text-lg">🪟</span>
-              <span>Cluster Config Drawer</span>
+              <span class="text-lg">⚙️</span>
+              <span>Config Drawer</span>
             </button>
 
             <a href="#settings" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -160,9 +165,9 @@
               <span id="themeIcon">🌙</span>
             </button>
 
-            <!-- Slide-Over Drawer Trigger Button -->
-            <button onclick="toggleSlideOver()" class="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
-              <span>⚙️ Config Drawer</span>
+            <!-- Export Report Button Triggering Modal -->
+            <button onclick="toggleModal('exportModal')" class="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+              <span>📦 Export Audit Report</span>
             </button>
           </div>
         </header>
@@ -180,8 +185,11 @@
               </div>
 
               <div class="flex items-center space-x-3">
+                <button onclick="toggleModal('exportModal')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+                  📦 Trigger Export Modal
+                </button>
                 <button onclick="toggleSlideOver()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all">
-                  🪟 Open Config Drawer
+                  🪟 Config Drawer
                 </button>
               </div>
             </div>
@@ -620,7 +628,7 @@
                       <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">DEPLOYING</span>
                     </td>
                     <td class="py-4 px-4 font-mono text-slate-300">42.1 ms</td>
-                    <td class="py-4 px-4 text-amber-400 font-bold">99.90%</td>
+                    <td class="py-4 px-4 text-emerald-400 font-bold">99.90%</td>
                     <td class="py-4 px-4 text-right">
                       <button onclick="toggleSlideOver()" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
                     </td>
@@ -643,7 +651,7 @@
             </div>
           </div>
 
-          <!-- ACCORDION SYSTEM FAQ & HELP DOCUMENTATION (NEW v1.8.0) -->
+          <!-- ACCORDION SYSTEM FAQ & HELP DOCUMENTATION -->
           <div id="faq" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">🗂️ Enterprise Operations FAQ &amp; Architecture Documentation</h3>
@@ -744,13 +752,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-cyan-400">[22:23:41] INFO: Accordion system FAQ &amp; help docs integrated.</span>
-                <span class="text-slate-500">task-6015</span>
+                <span class="text-indigo-400">[22:24:54] INFO: Interactive modal dialog system integrated.</span>
+                <span class="text-slate-500">task-6042</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:21:14] INFO: Infinite live event marquee stream active.</span>
-                <span class="text-slate-500">task-5991</span>
+                <span class="text-cyan-400">[22:23:41] INFO: Accordion system FAQ &amp; help docs integrated.</span>
+                <span class="text-slate-500">task-6015</span>
               </div>
             </div>
           </div>
@@ -762,6 +770,39 @@
           <p>© 2026 ApexAdmin Enterprise Infrastructure. Built with 100% Utility-First Tailwind CSS.</p>
         </footer>
 
+      </div>
+    </div>
+
+    <!-- EXPORT REPORT OVERLAY MODAL (NEW v1.9.0) -->
+    <div id="exportModal" class="fixed inset-0 z-50 hidden transition-all duration-300">
+      <!-- Backdrop Blur Overlay -->
+      <div onclick="toggleModal('exportModal')" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>
+
+      <!-- Modal Card -->
+      <div class="fixed inset-0 flex items-center justify-center p-4">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-700/80 rounded-2xl p-6 shadow-2xl space-y-5 z-10">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <h3 class="font-heading font-extrabold text-lg text-white">📦 Export Enterprise Audit Bundle</h3>
+            <button onclick="toggleModal('exportModal')" class="text-slate-400 hover:text-white text-xs">✕</button>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Generate and download encrypted audit log telemetry bundle containing all API request logs, SLA metrics, and cluster security events.
+          </p>
+
+          <div class="space-y-3">
+            <label class="text-xs font-bold text-slate-200">Export Format</label>
+            <select class="w-full px-3 py-2 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-200">
+              <option>JSON Bundle (.json.gz)</option>
+              <option>CSV Telemetry Sheet (.csv)</option>
+              <option>PDF Executive Audit Summary (.pdf)</option>
+            </select>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex justify-end space-x-3">
+            <button onclick="toggleModal('exportModal')" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold">Cancel</button>
+            <button onclick="toggleModal('exportModal')" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30">Download Bundle</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -848,7 +889,7 @@
       </div>
     </div>
 
-    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER, TOAST DISMISS & FAQ ACCORDION) -->
+    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER, TOAST DISMISS, FAQ & MODALS) -->
     <script>
       function toggleDarkMode() {
         const html = document.documentElement;
@@ -865,6 +906,13 @@
       function toggleSlideOver() {
         const drawer = document.getElementById('slideOverDrawer');
         drawer.classList.toggle('hidden');
+      }
+
+      function toggleModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.toggle('hidden');
+        }
       }
 
       function dismissToast(id) {
