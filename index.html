@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, interactive data filters, pagination controls, analytics metrics, search filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, slide-over config drawers, interactive data filters, pagination controls, analytics metrics, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.1.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.2.0</span>
               </div>
             </a>
           </div>
@@ -73,6 +73,11 @@
               <span>Deployments Table</span>
             </a>
 
+            <button onclick="toggleSlideOver()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🪟</span>
+              <span>Cluster Config Drawer</span>
+            </button>
+
             <a href="#telemetry" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">🌐</span>
               <span>Edge Telemetry</span>
@@ -81,11 +86,6 @@
             <a href="#logs" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">📜</span>
               <span>Audit Logs</span>
-            </a>
-
-            <a href="#settings" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
-              <span class="text-lg">⚙️</span>
-              <span>System Settings</span>
             </a>
           </nav>
         </div>
@@ -131,10 +131,10 @@
               <span id="themeIcon">🌙</span>
             </button>
 
-            <!-- Export Report Button -->
-            <a href="#export-modal" class="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
-              <span>📦 Export Audit Report</span>
-            </a>
+            <!-- Slide-Over Drawer Trigger Button -->
+            <button onclick="toggleSlideOver()" class="hidden sm:flex items-center space-x-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+              <span>⚙️ Config Drawer</span>
+            </button>
           </div>
         </header>
 
@@ -151,7 +151,9 @@
               </div>
 
               <div class="flex items-center space-x-3">
-                <span class="text-xs text-slate-400 font-mono">Last synced: Just now</span>
+                <button onclick="toggleSlideOver()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all">
+                  🪟 Open Config Drawer
+                </button>
               </div>
             </div>
 
@@ -314,7 +316,7 @@
             </div>
           </div>
 
-          <!-- CUSTOMER DEPLOYMENTS DATA TABLE (WITH FILTERS & PAGINATION BAR) -->
+          <!-- CUSTOMER DEPLOYMENTS DATA TABLE -->
           <div id="customers" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -325,7 +327,7 @@
               <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">28 TOTAL RECORDS</span>
             </div>
 
-            <!-- INTERACTIVE DATA FILTERS ROW (NEW v1.1.0) -->
+            <!-- INTERACTIVE DATA FILTERS ROW -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <!-- Filter Search Input -->
               <div class="relative">
@@ -380,7 +382,7 @@
                     <td class="py-4 px-4 font-mono text-slate-300">14.2 ms</td>
                     <td class="py-4 px-4 text-emerald-400 font-bold">99.99%</td>
                     <td class="py-4 px-4 text-right">
-                      <button class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
+                      <button onclick="toggleSlideOver()" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
                     </td>
                   </tr>
 
@@ -400,7 +402,7 @@
                     <td class="py-4 px-4 font-mono text-slate-300">18.4 ms</td>
                     <td class="py-4 px-4 text-emerald-400 font-bold">99.98%</td>
                     <td class="py-4 px-4 text-right">
-                      <button class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
+                      <button onclick="toggleSlideOver()" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
                     </td>
                   </tr>
 
@@ -420,14 +422,14 @@
                     <td class="py-4 px-4 font-mono text-slate-300">42.1 ms</td>
                     <td class="py-4 px-4 text-amber-400 font-bold">99.90%</td>
                     <td class="py-4 px-4 text-right">
-                      <button class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
+                      <button onclick="toggleSlideOver()" class="px-3 py-1.5 rounded-lg bg-slate-700 hover:bg-indigo-600 text-white transition-all text-xs font-semibold">Inspect</button>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- PAGINATION CONTROL STRIP (NEW v1.1.0) -->
+            <!-- PAGINATION CONTROL STRIP -->
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
               <span>Showing <strong class="text-white">1 to 3</strong> of <strong class="text-white">28</strong> deployment records</span>
 
@@ -447,13 +449,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:01:14] INFO: Data filters and pagination controls active.</span>
-                <span class="text-slate-500">task-5812</span>
+                <span class="text-indigo-400">[22:02:15] INFO: Component slide-over drawer panel activated.</span>
+                <span class="text-slate-500">task-5845</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[21:46:41] INFO: Cluster us-east-1 auto-scaled 4 new pods cleanly.</span>
-                <span class="text-slate-500">task-5775</span>
+                <span class="text-emerald-400">[22:01:14] INFO: Data filters and pagination controls active.</span>
+                <span class="text-slate-500">task-5812</span>
               </div>
             </div>
           </div>
@@ -468,7 +470,73 @@
       </div>
     </div>
 
-    <!-- JS INTERACTIVITY (DARK MODE TOGGLE) -->
+    <!-- TAILWIND SLIDE-OVER DRAWER COMPONENT (NEW v1.2.0) -->
+    <div id="slideOverDrawer" class="fixed inset-0 z-50 hidden transition-all duration-300">
+      <!-- Backdrop Blur Overlay -->
+      <div onclick="toggleSlideOver()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>
+
+      <!-- Slide-Over Panel Container -->
+      <div class="fixed inset-y-0 right-0 w-full max-w-md bg-slate-900 border-l border-slate-700/60 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto transform transition-transform">
+        <div class="space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h2 class="font-heading font-extrabold text-xl text-white">⚙️ Cluster Configuration</h2>
+              <p class="text-xs text-slate-400 mt-0.5">Manage node allocation and edge routing policies</p>
+            </div>
+            <button onclick="toggleSlideOver()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all">✕</button>
+          </div>
+
+          <!-- Config Form Group 1 -->
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-slate-200">Target Region Endpoint</label>
+            <select class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option>us-east-1 (N. Virginia Edge)</option>
+              <option>eu-west-1 (Frankfurt Edge)</option>
+              <option>ap-east-1 (Tokyo Edge)</option>
+            </select>
+          </div>
+
+          <!-- Config Form Group 2 -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <label class="font-bold text-slate-200">Max Worker Pod Scaling</label>
+              <span class="font-mono text-indigo-400 font-bold">16 Pods</span>
+            </div>
+            <input type="range" min="1" max="32" value="16" class="w-full accent-indigo-500 bg-slate-800 rounded-lg h-2" />
+          </div>
+
+          <!-- Config Form Group 3 Switch -->
+          <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-between">
+            <div>
+              <h4 class="text-xs font-bold text-white">Strict Horizontal Auto-Scaling</h4>
+              <p class="text-[11px] text-slate-400">Scale worker pods automatically above 80% CPU</p>
+            </div>
+            <input type="checkbox" checked class="w-4 h-4 text-indigo-600 rounded bg-slate-900 border-slate-700" />
+          </div>
+
+          <!-- Config Form Group 4 Data Retention -->
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-slate-200">Telemetry Data Retention TTL</label>
+            <select class="w-full px-3.5 py-2.5 text-xs rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option>30 Days (Standard Audit)</option>
+              <option>90 Days (Enterprise Compliance)</option>
+              <option>365 Days (Archival Grade)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 flex space-x-3">
+          <button onclick="toggleSlideOver()" class="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs transition-all shadow-lg shadow-indigo-600/30">
+            Save Configuration
+          </button>
+          <button onclick="toggleSlideOver()" class="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS INTERACTIVITY (DARK MODE & SLIDE-OVER TOGGLES) -->
     <script>
       function toggleDarkMode() {
         const html = document.documentElement;
@@ -480,6 +548,11 @@
           html.classList.add('dark');
           icon.textContent = '🌙';
         }
+      }
+
+      function toggleSlideOver() {
+        const drawer = document.getElementById('slideOverDrawer');
+        drawer.classList.toggle('hidden');
       }
     </script>
   </body>
