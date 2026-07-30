@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, release timelines, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.1.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.2.0</span>
               </div>
             </a>
           </div>
@@ -100,6 +100,11 @@
             <a href="#pricing" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">💳</span>
               <span>Subscription Plans</span>
+            </a>
+
+            <a href="#timeline" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">📜</span>
+              <span>Release Timeline</span>
             </a>
 
             <button onclick="toggleModal('exportModal')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -586,7 +591,7 @@
             </div>
           </div>
 
-          <!-- SAAS SUBSCRIPTION PLAN CARDS (NEW v2.1.0) -->
+          <!-- SAAS SUBSCRIPTION PLAN CARDS -->
           <div id="pricing" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">💳 SaaS Subscription Plan Cards</h3>
@@ -647,6 +652,56 @@
                 </div>
 
                 <button class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 transition-all border border-slate-700">Upgrade Enterprise</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- INTERACTIVE RELEASE TIMELINE & VERSION HISTORY (NEW v2.2.0) -->
+          <div id="timeline" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
+            <div>
+              <h3 class="font-heading font-bold text-xl text-white">📜 ApexAdmin Software Release Timeline</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Vertical milestone timeline tracing releases from v1.0.0 through v2.2.0</p>
+            </div>
+
+            <!-- Vertical Timeline Container -->
+            <div class="relative pl-6 space-y-8 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-700">
+              <!-- Event 1: v2.2.0 -->
+              <div class="relative flex items-start space-x-4">
+                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20"></span>
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">v2.2.0 RELEASE</span>
+                    <span class="text-[11px] text-slate-400">2026-07-29</span>
+                  </div>
+                  <h4 class="text-xs font-bold text-white">Interactive Release Timeline Component</h4>
+                  <p class="text-xs text-slate-400">Added vertical release milestone timeline tracking platform evolution.</p>
+                </div>
+              </div>
+
+              <!-- Event 2: v2.1.0 -->
+              <div class="relative flex items-start space-x-4">
+                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">v2.1.0 RELEASE</span>
+                    <span class="text-[11px] text-slate-400">2026-07-29</span>
+                  </div>
+                  <h4 class="text-xs font-bold text-white">SaaS Subscription Plan Cards</h4>
+                  <p class="text-xs text-slate-400">Integrated Starter, Professional, and Enterprise tier pricing grid.</p>
+                </div>
+              </div>
+
+              <!-- Event 3: v2.0.0 -->
+              <div class="relative flex items-start space-x-4">
+                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">v2.0.0 MILESTONE</span>
+                    <span class="text-[11px] text-slate-400">2026-07-29</span>
+                  </div>
+                  <h4 class="text-xs font-bold text-white">Microservice Sub-System Status Strip</h4>
+                  <p class="text-xs text-slate-400">Added 6 microservice operational status pills with live pulse indicators.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -879,13 +934,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:27:48] INFO: SaaS subscription plan cards section integrated.</span>
-                <span class="text-slate-500">task-6099</span>
+                <span class="text-purple-400">[22:28:52] INFO: Vertical software release timeline section integrated.</span>
+                <span class="text-slate-500">task-6129</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:26:08] INFO: Sub-system status pill strip section integrated.</span>
-                <span class="text-slate-500">task-6065</span>
+                <span class="text-indigo-400">[22:27:48] INFO: SaaS subscription plan cards section integrated.</span>
+                <span class="text-slate-500">task-6099</span>
               </div>
             </div>
           </div>
