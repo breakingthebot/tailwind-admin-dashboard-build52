@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, notification preference settings center, teardown confirmation modal, SLA uptime heatmap grid, universal search modal (⌘K), release timelines, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, API key generation & management card, notification preference settings center, teardown confirmation modal, SLA uptime heatmap grid, universal search modal (⌘K), release timelines, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.6.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.7.0</span>
               </div>
             </a>
           </div>
@@ -105,6 +105,11 @@
             <a href="#permissions" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">📇</span>
               <span>RBAC Matrix</span>
+            </a>
+
+            <a href="#apikeys" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">📁</span>
+              <span>API Key Manager</span>
             </a>
 
             <a href="#pricing" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -718,6 +723,86 @@
             </div>
           </div>
 
+          <!-- API KEY GENERATION & MANAGEMENT CARD (NEW v2.7.0) -->
+          <div id="apikeys" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h3 class="font-heading font-bold text-xl text-white">📁 Security API Keys &amp; Passkey Manager</h3>
+                <p class="text-xs text-slate-400 mt-0.5">Manage secret authentication tokens and developer API keys</p>
+              </div>
+
+              <button onclick="alert('⚡ New API Key Generated: ak_prod_live_8812x99')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition-all">
+                + Generate Secret API Key
+              </button>
+            </div>
+
+            <!-- API Keys Table -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs text-slate-300">
+                <thead class="bg-slate-900/80 text-slate-400 font-semibold uppercase tracking-wider border-b border-slate-700">
+                  <tr>
+                    <th class="py-3.5 px-4">Key Label / Scope</th>
+                    <th class="py-3.5 px-4">Secret Prefix</th>
+                    <th class="py-3.5 px-4">Status</th>
+                    <th class="py-3.5 px-4">Created Date</th>
+                    <th class="py-3.5 px-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-700/50 font-medium">
+                  <!-- Key 1 -->
+                  <tr class="hover:bg-slate-700/30 transition-colors">
+                    <td class="py-4 px-4">
+                      <span class="font-bold text-white block">Production Admin Key</span>
+                      <span class="text-[10px] font-mono text-indigo-400">admin:all • read:metrics</span>
+                    </td>
+                    <td class="py-4 px-4 font-mono text-slate-400">ak_prod_9921x84a...</td>
+                    <td class="py-4 px-4">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ACTIVE</span>
+                    </td>
+                    <td class="py-4 px-4 text-slate-400">2026-07-01</td>
+                    <td class="py-4 px-4 text-right space-x-2">
+                      <button onclick="alert('📋 Copied: ak_prod_9921x84a991823')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">Copy</button>
+                      <button onclick="alert('🚫 Key Revoked')" class="px-3 py-1.5 rounded-lg bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 text-xs font-semibold">Revoke</button>
+                    </td>
+                  </tr>
+
+                  <!-- Key 2 -->
+                  <tr class="hover:bg-slate-700/30 transition-colors">
+                    <td class="py-4 px-4">
+                      <span class="font-bold text-white block">Read-Only Telemetry Stream</span>
+                      <span class="text-[10px] font-mono text-cyan-400">read:metrics</span>
+                    </td>
+                    <td class="py-4 px-4 font-mono text-slate-400">ak_read_1109a4b...</td>
+                    <td class="py-4 px-4">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">ACTIVE</span>
+                    </td>
+                    <td class="py-4 px-4 text-slate-400">2026-06-15</td>
+                    <td class="py-4 px-4 text-right space-x-2">
+                      <button onclick="alert('📋 Copied: ak_read_1109a4b88273')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold">Copy</button>
+                      <button onclick="alert('🚫 Key Revoked')" class="px-3 py-1.5 rounded-lg bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 text-xs font-semibold">Revoke</button>
+                    </td>
+                  </tr>
+
+                  <!-- Key 3 -->
+                  <tr class="hover:bg-slate-700/30 transition-colors">
+                    <td class="py-4 px-4">
+                      <span class="font-bold text-white block">Dev Sandbox Key</span>
+                      <span class="text-[10px] font-mono text-slate-500">write:deployments</span>
+                    </td>
+                    <td class="py-4 px-4 font-mono text-slate-500">ak_dev_7718b2c...</td>
+                    <td class="py-4 px-4">
+                      <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-700 text-slate-400 border border-slate-600">REVOKED</span>
+                    </td>
+                    <td class="py-4 px-4 text-slate-500">2026-05-10</td>
+                    <td class="py-4 px-4 text-right">
+                      <button class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-600 text-xs font-semibold" disabled>Expired</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
           <!-- SAAS SUBSCRIPTION PLAN CARDS -->
           <div id="pricing" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
@@ -787,12 +872,25 @@
           <div id="timeline" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">📜 ApexAdmin Software Release Timeline</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Vertical milestone timeline tracing releases from v1.0.0 through v2.6.0</p>
+              <p class="text-xs text-slate-400 mt-0.5">Vertical milestone timeline tracing releases from v1.0.0 through v2.7.0</p>
             </div>
 
             <!-- Vertical Timeline Container -->
             <div class="relative pl-6 space-y-8 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-700">
-              <!-- Event 1: v2.6.0 -->
+              <!-- Event 1: v2.7.0 -->
+              <div class="relative flex items-start space-x-4">
+                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-cyan-400/20"></span>
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">v2.7.0 RELEASE</span>
+                    <span class="text-[11px] text-slate-400">2026-07-29</span>
+                  </div>
+                  <h4 class="text-xs font-bold text-white">API Key Generation &amp; Management Card</h4>
+                  <p class="text-xs text-slate-400">Added secret API token management table with copy-to-clipboard actions.</p>
+                </div>
+              </div>
+
+              <!-- Event 2: v2.6.0 -->
               <div class="relative flex items-start space-x-4">
                 <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-indigo-400 ring-4 ring-indigo-400/20"></span>
                 <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
@@ -802,19 +900,6 @@
                   </div>
                   <h4 class="text-xs font-bold text-white">Notification Preference Settings Center</h4>
                   <p class="text-xs text-slate-400">Added email, SMS, Slack webhook, and desktop push alert channel controls.</p>
-                </div>
-              </div>
-
-              <!-- Event 2: v2.5.0 -->
-              <div class="relative flex items-start space-x-4">
-                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-rose-500 ring-4 ring-rose-500/20"></span>
-                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
-                  <div class="flex items-center justify-between">
-                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">v2.5.0 RELEASE</span>
-                    <span class="text-[11px] text-slate-400">2026-07-29</span>
-                  </div>
-                  <h4 class="text-xs font-bold text-white">Interactive Confirmation Teardown Modal</h4>
-                  <p class="text-xs text-slate-400">Added danger zone teardown dialog overlay requiring verification phrase.</p>
                 </div>
               </div>
             </div>
@@ -1042,7 +1127,7 @@
             </div>
           </div>
 
-          <!-- NOTIFICATION PREFERENCE SETTINGS CENTER (NEW v2.6.0) -->
+          <!-- NOTIFICATION PREFERENCE SETTINGS CENTER -->
           <div id="notifications" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">🔔 Notification Preference Settings Center</h3>
@@ -1118,13 +1203,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:37:19] INFO: Notification preferences center section integrated.</span>
-                <span class="text-slate-500">task-6228</span>
+                <span class="text-cyan-400">[22:37:58] INFO: API key generation &amp; secret manager card integrated.</span>
+                <span class="text-slate-500">task-6238</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-rose-400">[22:36:19] WARN: Teardown confirmation modal system initialized.</span>
-                <span class="text-slate-500">task-6218</span>
+                <span class="text-indigo-400">[22:37:19] INFO: Notification preferences center section integrated.</span>
+                <span class="text-slate-500">task-6228</span>
               </div>
             </div>
           </div>
@@ -1200,16 +1285,16 @@
                   <span class="flex items-center space-x-2"><span>📊</span><strong class="text-white">Overview &amp; Metrics Dashboard</strong></span>
                   <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
                 </a>
+                <a href="#apikeys" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
+                  <span class="flex items-center space-x-2"><span>📁</span><strong class="text-white">API Key Generation &amp; Secret Manager</strong></span>
+                  <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
+                </a>
                 <a href="#notifications" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
                   <span class="flex items-center space-x-2"><span>🔔</span><strong class="text-white">Notification Preference Settings</strong></span>
                   <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
                 </a>
                 <a href="#heatmap" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
                   <span class="flex items-center space-x-2"><span>📊</span><strong class="text-white">SLA Uptime Heatmap Grid</strong></span>
-                  <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
-                </a>
-                <a href="#gauges" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
-                  <span class="flex items-center space-x-2"><span>🏷️</span><strong class="text-white">Cluster Resource Gauges (CPU/RAM)</strong></span>
                   <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
                 </a>
               </div>

@@ -5,11 +5,16 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] - 2026-07-29
+
+### Added
+- Integrated **API Key Generation & Management Card (`#apikeys`)**.
+- Added API key management table with secret key generation, copy-to-clipboard, key revocation, and scope tags.
+
 ## [2.6.0] - 2026-07-29
 
 ### Added
 - Integrated **Notification Preference Settings Center (`#notifications`)**.
-- Added email, SMS emergency hotline, Slack webhook streamer, and desktop browser push alert channel controls.
 
 ## [2.5.0] - 2026-07-29
 
