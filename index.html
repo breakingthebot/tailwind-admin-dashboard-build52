@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, pagination controls, analytics metrics, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, analytics metrics, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.4.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.5.0</span>
               </div>
             </a>
           </div>
@@ -68,6 +68,11 @@
               <span>Analytics &amp; Metrics</span>
             </a>
 
+            <a href="#gauges" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🏷️</span>
+              <span>Server Gauges</span>
+            </a>
+
             <a href="#customers" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">👥</span>
               <span>Deployments Table</span>
@@ -81,11 +86,6 @@
             <a href="#settings" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">⚙️</span>
               <span>System Settings</span>
-            </a>
-
-            <a href="#telemetry" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
-              <span class="text-lg">🌐</span>
-              <span>Edge Telemetry</span>
             </a>
 
             <a href="#logs" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -321,6 +321,76 @@
             </div>
           </div>
 
+          <!-- SERVER METRIC GAUGES & CPU INDICATORS (NEW v1.5.0) -->
+          <div id="gauges" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
+            <div>
+              <h3 class="font-heading font-bold text-xl text-white">🏷️ Real-Time Cluster Resource Gauges</h3>
+              <p class="text-xs text-slate-400 mt-0.5">Live CPU utilization, RAM memory allocation, NVMe storage, and network bandwidth</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <!-- Gauge 1: CPU -->
+              <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/50 flex flex-col items-center text-center space-y-3">
+                <div class="relative w-28 h-28 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-slate-800" fill="transparent" />
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-amber-400" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="40.1" stroke-linecap="round" />
+                  </svg>
+                  <span class="absolute font-heading font-extrabold text-xl text-white">84%</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">CPU Core Utilization</h4>
+                  <p class="text-[11px] text-amber-400 font-medium">84% • High Core Load</p>
+                </div>
+              </div>
+
+              <!-- Gauge 2: RAM -->
+              <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/50 flex flex-col items-center text-center space-y-3">
+                <div class="relative w-28 h-28 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-slate-800" fill="transparent" />
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-emerald-400" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="95.4" stroke-linecap="round" />
+                  </svg>
+                  <span class="absolute font-heading font-extrabold text-xl text-white">62%</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">RAM Allocation</h4>
+                  <p class="text-[11px] text-emerald-400 font-medium">62% • 39.6GB / 64GB</p>
+                </div>
+              </div>
+
+              <!-- Gauge 3: NVMe -->
+              <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/50 flex flex-col items-center text-center space-y-3">
+                <div class="relative w-28 h-28 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-slate-800" fill="transparent" />
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-indigo-400" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="138.1" stroke-linecap="round" />
+                  </svg>
+                  <span class="absolute font-heading font-extrabold text-xl text-white">45%</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">NVMe Storage I/O</h4>
+                  <p class="text-[11px] text-indigo-400 font-medium">45% • 1.8TB / 4.0TB</p>
+                </div>
+              </div>
+
+              <!-- Gauge 4: Bandwidth -->
+              <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-700/50 flex flex-col items-center text-center space-y-3">
+                <div class="relative w-28 h-28 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-slate-800" fill="transparent" />
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8" class="text-rose-500" fill="transparent" stroke-dasharray="251.2" stroke-dashoffset="22.6" stroke-linecap="round" />
+                  </svg>
+                  <span class="absolute font-heading font-extrabold text-xl text-white">91%</span>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white">Network Bandwidth</h4>
+                  <p class="text-[11px] text-rose-400 font-medium">91% • 9.1Gbps Saturation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- CUSTOMER DEPLOYMENTS DATA TABLE -->
           <div id="customers" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -448,7 +518,7 @@
             </div>
           </div>
 
-          <!-- SYSTEM SETTINGS FORM CONTROLS GRID (NEW v1.4.0) -->
+          <!-- SYSTEM SETTINGS FORM CONTROLS GRID -->
           <div id="settings" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">⚙️ System Settings &amp; Security Controls</h3>
@@ -506,13 +576,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:05:42] INFO: System settings form controls grid updated.</span>
-                <span class="text-slate-500">task-5895</span>
+                <span class="text-amber-400">[22:06:40] INFO: Real-time server resource metric gauges rendering.</span>
+                <span class="text-slate-500">task-5922</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:04:49] INFO: Live toast streamer notification banner active.</span>
-                <span class="text-slate-500">task-5868</span>
+                <span class="text-indigo-400">[22:05:42] INFO: System settings form controls grid updated.</span>
+                <span class="text-slate-500">task-5895</span>
               </div>
             </div>
           </div>
