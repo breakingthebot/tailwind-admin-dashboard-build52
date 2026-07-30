@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, slide-over config drawers, interactive data filters, pagination controls, analytics metrics, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, live toast streamers, slide-over config drawers, interactive data filters, pagination controls, analytics metrics, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.2.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.3.0</span>
               </div>
             </a>
           </div>
@@ -449,13 +449,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:02:15] INFO: Component slide-over drawer panel activated.</span>
-                <span class="text-slate-500">task-5845</span>
+                <span class="text-emerald-400">[22:04:49] INFO: Live toast streamer notification banner active.</span>
+                <span class="text-slate-500">task-5868</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[22:01:14] INFO: Data filters and pagination controls active.</span>
-                <span class="text-slate-500">task-5812</span>
+                <span class="text-indigo-400">[22:02:15] INFO: Component slide-over drawer panel activated.</span>
+                <span class="text-slate-500">task-5845</span>
               </div>
             </div>
           </div>
@@ -470,7 +470,24 @@
       </div>
     </div>
 
-    <!-- TAILWIND SLIDE-OVER DRAWER COMPONENT (NEW v1.2.0) -->
+    <!-- LIVE TOAST STREAMER CONTAINER (NEW v1.3.0) -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full">
+      <div id="toast1" class="bg-slate-900/90 border border-slate-700/80 backdrop-blur-xl rounded-2xl p-4 shadow-2xl space-y-2 transform transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <strong class="text-xs font-bold text-white">Cluster Auto-Scaled</strong>
+          </div>
+          <button onclick="dismissToast('toast1')" class="text-xs text-slate-400 hover:text-white">✕</button>
+        </div>
+        <p class="text-xs text-slate-400">us-east-1 scaled 4 new pods in 140ms.</p>
+        <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+          <div class="bg-emerald-500 h-full w-full animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAILWIND SLIDE-OVER DRAWER COMPONENT -->
     <div id="slideOverDrawer" class="fixed inset-0 z-50 hidden transition-all duration-300">
       <!-- Backdrop Blur Overlay -->
       <div onclick="toggleSlideOver()" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>
@@ -536,7 +553,7 @@
       </div>
     </div>
 
-    <!-- JS INTERACTIVITY (DARK MODE & SLIDE-OVER TOGGLES) -->
+    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER & TOAST DISMISS) -->
     <script>
       function toggleDarkMode() {
         const html = document.documentElement;
@@ -553,6 +570,15 @@
       function toggleSlideOver() {
         const drawer = document.getElementById('slideOverDrawer');
         drawer.classList.toggle('hidden');
+      }
+
+      function dismissToast(id) {
+        const toast = document.getElementById(id);
+        if (toast) {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(10px)';
+          setTimeout(() => toast.remove(), 300);
+        }
       }
     </script>
   </body>
