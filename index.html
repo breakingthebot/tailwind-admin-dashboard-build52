@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, release timelines, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, universal search modal (⌘K), release timelines, SaaS subscription plan cards, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.2.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.3.0</span>
               </div>
             </a>
           </div>
@@ -71,6 +71,11 @@
               <span class="text-lg">📊</span>
               <span>Overview</span>
             </a>
+
+            <button onclick="toggleModal('searchModal')" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🔍</span>
+              <span>Quick Search (⌘K)</span>
+            </button>
 
             <a href="#strips" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
               <span class="text-lg">🎛️</span>
@@ -161,10 +166,10 @@
 
         <!-- STICKY TOP HEADER NAVBAR -->
         <header class="sticky top-0 z-20 bg-slate-900/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-6 py-4 flex items-center justify-between">
-          <!-- Search Control -->
-          <div class="relative w-72">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">🔍</span>
-            <input type="text" placeholder="Search analytics, servers, or users... (⌘K)" class="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-slate-800/80 dark:bg-slate-900/80 border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all" />
+          <!-- Search Control Triggering Search Modal -->
+          <div onclick="toggleModal('searchModal')" class="relative w-72 cursor-pointer group">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 group-hover:text-white">🔍</span>
+            <input type="text" readonly placeholder="Search analytics, servers, or users... (⌘K)" class="w-full pl-10 pr-4 py-2 text-xs rounded-xl bg-slate-800/80 dark:bg-slate-900/80 border border-slate-700 text-slate-200 placeholder-slate-400 focus:outline-none cursor-pointer group-hover:border-indigo-500 transition-all" />
           </div>
 
           <!-- Header Actions & Theme Toggle -->
@@ -200,11 +205,11 @@
               </div>
 
               <div class="flex items-center space-x-3">
-                <button onclick="toggleModal('exportModal')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
-                  📦 Trigger Export Modal
+                <button onclick="toggleModal('searchModal')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all">
+                  🔍 Search (⌘K)
                 </button>
-                <button onclick="toggleSlideOver()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-all">
-                  🪟 Config Drawer
+                <button onclick="toggleModal('exportModal')" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+                  📦 Export Modal
                 </button>
               </div>
             </div>
@@ -656,16 +661,29 @@
             </div>
           </div>
 
-          <!-- INTERACTIVE RELEASE TIMELINE & VERSION HISTORY (NEW v2.2.0) -->
+          <!-- INTERACTIVE RELEASE TIMELINE & VERSION HISTORY -->
           <div id="timeline" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div>
               <h3 class="font-heading font-bold text-xl text-white">📜 ApexAdmin Software Release Timeline</h3>
-              <p class="text-xs text-slate-400 mt-0.5">Vertical milestone timeline tracing releases from v1.0.0 through v2.2.0</p>
+              <p class="text-xs text-slate-400 mt-0.5">Vertical milestone timeline tracing releases from v1.0.0 through v2.3.0</p>
             </div>
 
             <!-- Vertical Timeline Container -->
             <div class="relative pl-6 space-y-8 before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-700">
-              <!-- Event 1: v2.2.0 -->
+              <!-- Event 1: v2.3.0 -->
+              <div class="relative flex items-start space-x-4">
+                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-cyan-400/20"></span>
+                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
+                  <div class="flex items-center justify-between">
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">v2.3.0 RELEASE</span>
+                    <span class="text-[11px] text-slate-400">2026-07-29</span>
+                  </div>
+                  <h4 class="text-xs font-bold text-white">Universal Quick Search Modal (⌘K)</h4>
+                  <p class="text-xs text-slate-400">Added keyboard shortcut search dialog with categorized search results.</p>
+                </div>
+              </div>
+
+              <!-- Event 2: v2.2.0 -->
               <div class="relative flex items-start space-x-4">
                 <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-indigo-500/20"></span>
                 <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
@@ -678,29 +696,16 @@
                 </div>
               </div>
 
-              <!-- Event 2: v2.1.0 -->
-              <div class="relative flex items-start space-x-4">
-                <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
-                <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
-                  <div class="flex items-center justify-between">
-                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">v2.1.0 RELEASE</span>
-                    <span class="text-[11px] text-slate-400">2026-07-29</span>
-                  </div>
-                  <h4 class="text-xs font-bold text-white">SaaS Subscription Plan Cards</h4>
-                  <p class="text-xs text-slate-400">Integrated Starter, Professional, and Enterprise tier pricing grid.</p>
-                </div>
-              </div>
-
-              <!-- Event 3: v2.0.0 -->
+              <!-- Event 3: v2.1.0 -->
               <div class="relative flex items-start space-x-4">
                 <span class="absolute -left-6 top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
                 <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-700/60 w-full space-y-1.5">
                   <div class="flex items-center justify-between">
-                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">v2.0.0 MILESTONE</span>
+                    <span class="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">v2.1.0 RELEASE</span>
                     <span class="text-[11px] text-slate-400">2026-07-29</span>
                   </div>
-                  <h4 class="text-xs font-bold text-white">Microservice Sub-System Status Strip</h4>
-                  <p class="text-xs text-slate-400">Added 6 microservice operational status pills with live pulse indicators.</p>
+                  <h4 class="text-xs font-bold text-white">SaaS Subscription Plan Cards</h4>
+                  <p class="text-xs text-slate-400">Integrated Starter, Professional, and Enterprise tier pricing grid.</p>
                 </div>
               </div>
             </div>
@@ -934,13 +939,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-purple-400">[22:28:52] INFO: Vertical software release timeline section integrated.</span>
-                <span class="text-slate-500">task-6129</span>
+                <span class="text-cyan-400">[22:32:06] INFO: Universal quick search modal (⌘K) integrated.</span>
+                <span class="text-slate-500">task-6161</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:27:48] INFO: SaaS subscription plan cards section integrated.</span>
-                <span class="text-slate-500">task-6099</span>
+                <span class="text-purple-400">[22:28:52] INFO: Vertical software release timeline section integrated.</span>
+                <span class="text-slate-500">task-6129</span>
               </div>
             </div>
           </div>
@@ -952,6 +957,63 @@
           <p>© 2026 ApexAdmin Enterprise Infrastructure. Built with 100% Utility-First Tailwind CSS.</p>
         </footer>
 
+      </div>
+    </div>
+
+    <!-- UNIVERSAL QUICK SEARCH MODAL (NEW v2.3.0) -->
+    <div id="searchModal" class="fixed inset-0 z-50 hidden transition-all duration-300">
+      <!-- Backdrop Blur Overlay -->
+      <div onclick="toggleModal('searchModal')" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>
+
+      <!-- Modal Card -->
+      <div class="fixed inset-0 flex items-start justify-center pt-20 p-4">
+        <div class="max-w-xl w-full bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl space-y-4 z-10 overflow-hidden">
+          <!-- Input Header -->
+          <div class="p-4 border-b border-slate-800 flex items-center space-x-3">
+            <span class="text-slate-400 text-lg">🔍</span>
+            <input type="text" placeholder="Type a command or search sections... (e.g. 'Gauges', 'RBAC', 'Acme')" class="w-full bg-transparent text-sm text-white placeholder-slate-500 focus:outline-none" />
+            <button onclick="toggleModal('searchModal')" class="text-xs text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800 border border-slate-700">ESC</button>
+          </div>
+
+          <!-- Quick Results Container -->
+          <div class="p-4 pt-0 space-y-4 max-h-96 overflow-y-auto">
+            <!-- Group 1: Navigation -->
+            <div class="space-y-1.5">
+              <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">Navigation Shortcuts</span>
+              <div class="space-y-1">
+                <a href="#overview" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
+                  <span class="flex items-center space-x-2"><span>📊</span><strong class="text-white">Overview &amp; Metrics Dashboard</strong></span>
+                  <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
+                </a>
+                <a href="#gauges" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
+                  <span class="flex items-center space-x-2"><span>🏷️</span><strong class="text-white">Cluster Resource Gauges (CPU/RAM)</strong></span>
+                  <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
+                </a>
+                <a href="#permissions" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
+                  <span class="flex items-center space-x-2"><span>📇</span><strong class="text-white">Role-Based Access Control (RBAC)</strong></span>
+                  <span class="text-[10px] font-mono text-slate-500">Jump to section</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Group 2: Deployments -->
+            <div class="space-y-1.5">
+              <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">Customer Deployments</span>
+              <div class="space-y-1">
+                <a href="#customers" onclick="toggleModal('searchModal')" class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-800/80 text-xs text-slate-200 transition-colors">
+                  <span class="flex items-center space-x-2"><span>🏢</span><strong class="text-white">Acme Global Corp</strong><span class="text-[10px] text-slate-400">(us-east-1)</span></span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400">ACTIVE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="p-3 bg-slate-950 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Press <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">⌘K</kbd> to open anytime</span>
+            <span>Use <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">↑↓</kbd> to navigate</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1071,7 +1133,7 @@
       </div>
     </div>
 
-    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER, TOAST DISMISS, FAQ & MODALS) -->
+    <!-- JS INTERACTIVITY (DARK MODE, SLIDE-OVER, TOAST DISMISS, FAQ, MODALS & KEYBOARD ⌘K SHORTCUT) -->
     <script>
       function toggleDarkMode() {
         const html = document.documentElement;
@@ -1117,6 +1179,14 @@
           icon.style.transform = 'rotate(0deg)';
         }
       }
+
+      // Keyboard Shortcut listener for ⌘K or Ctrl+K
+      document.addEventListener('keydown', function (e) {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+          e.preventDefault();
+          toggleModal('searchModal');
+        }
+      });
     </script>
   </body>
 </html>
