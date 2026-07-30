@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, analytics metrics, search filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, interactive data filters, pagination controls, analytics metrics, search filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.0.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.1.0</span>
               </div>
             </a>
           </div>
@@ -314,7 +314,7 @@
             </div>
           </div>
 
-          <!-- CUSTOMER DEPLOYMENTS DATA TABLE -->
+          <!-- CUSTOMER DEPLOYMENTS DATA TABLE (WITH FILTERS & PAGINATION BAR) -->
           <div id="customers" class="p-6 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-6">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -322,12 +322,32 @@
                 <p class="text-xs text-slate-400 mt-0.5">Active enterprise client deployments and SLA monitoring records</p>
               </div>
 
-              <!-- Filter Tags -->
-              <div class="flex items-center space-x-2">
-                <button class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white text-xs font-medium shadow-md">All (28)</button>
-                <button class="px-3 py-1.5 rounded-xl bg-slate-700/50 text-slate-300 hover:text-white text-xs font-medium transition-all">Active (24)</button>
-                <button class="px-3 py-1.5 rounded-xl bg-slate-700/50 text-slate-300 hover:text-white text-xs font-medium transition-all">Deploying (3)</button>
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">28 TOTAL RECORDS</span>
+            </div>
+
+            <!-- INTERACTIVE DATA FILTERS ROW (NEW v1.1.0) -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <!-- Filter Search Input -->
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">🔍</span>
+                <input type="text" placeholder="Filter customer name or URL..." class="w-full pl-9 pr-4 py-2 text-xs rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20" />
               </div>
+
+              <!-- Filter Status Select -->
+              <select class="w-full px-3 py-2 text-xs rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-indigo-500">
+                <option value="all">⚡ All Deployment Statuses</option>
+                <option value="active">🟢 Active Only (24)</option>
+                <option value="deploying">🟡 Deploying Only (3)</option>
+                <option value="failed">🔴 Alert / Failed (1)</option>
+              </select>
+
+              <!-- Filter Region Select -->
+              <select class="w-full px-3 py-2 text-xs rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-indigo-500">
+                <option value="all">🌐 All Regions</option>
+                <option value="us-east">US East (N. Virginia)</option>
+                <option value="eu-west">EU West (Frankfurt)</option>
+                <option value="ap-east">AP East (Tokyo)</option>
+              </select>
             </div>
 
             <!-- Table Wrapper -->
@@ -406,6 +426,19 @@
                 </tbody>
               </table>
             </div>
+
+            <!-- PAGINATION CONTROL STRIP (NEW v1.1.0) -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-slate-700/50 text-xs text-slate-400">
+              <span>Showing <strong class="text-white">1 to 3</strong> of <strong class="text-white">28</strong> deployment records</span>
+
+              <div class="flex items-center space-x-1.5">
+                <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all disabled:opacity-50" disabled>Previous</button>
+                <button class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-bold">1</button>
+                <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">2</button>
+                <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">3</button>
+                <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all">Next</button>
+              </div>
+            </div>
           </div>
 
           <!-- AUDIT LOG FEED & FOOTER -->
@@ -414,13 +447,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-emerald-400">[21:46:41] INFO: Cluster us-east-1 auto-scaled 4 new pods cleanly.</span>
-                <span class="text-slate-500">task-5775</span>
+                <span class="text-emerald-400">[22:01:14] INFO: Data filters and pagination controls active.</span>
+                <span class="text-slate-500">task-5812</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[21:44:12] AUTH: Admin Jane Doe authenticated via OAuth2.0 passkey.</span>
-                <span class="text-slate-500">task-5712</span>
+                <span class="text-emerald-400">[21:46:41] INFO: Cluster us-east-1 auto-scaled 4 new pods cleanly.</span>
+                <span class="text-slate-500">task-5775</span>
               </div>
             </div>
           </div>

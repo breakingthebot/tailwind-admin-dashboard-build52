@@ -5,6 +5,12 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-07-29
+
+### Added
+- Integrated **Real-time Interactive Data Filters & Pagination Bar**.
+- Added multi-criteria filter controls (search input, status select, region select) and pagination navigation bar.
+
 ## [1.0.0] - 2026-07-29
 
 ### Added
