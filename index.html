@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ApexAdmin — Enterprise Tailwind CSS Admin Dashboard</title>
-    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
+    <meta name="description" content="ApexAdmin is a real-world, standalone enterprise admin dashboard built entirely with utility-first Tailwind CSS classes. Featuring responsive layouts, dark mode toggling, sub-system status pill strips, interactive modal dialogs, FAQ accordions, infinite log marquees, RBAC permission matrices, SVG metric gauges, CPU indicators, system settings form controls, live toast streamers, slide-over config drawers, interactive data filters, customer data tables, telemetry charts, and zero custom CSS stylesheets." />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
               </div>
               <div>
                 <span class="font-heading font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">Apex<span class="text-indigo-400">Admin</span></span>
-                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v1.9.0</span>
+                <span class="block text-[10px] font-mono text-indigo-400 tracking-wider">TAILWIND v2.0.0</span>
               </div>
             </a>
           </div>
@@ -70,6 +70,11 @@
             <a href="#overview" class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-indigo-600 text-white font-medium shadow-lg shadow-indigo-600/30 transition-all">
               <span class="text-lg">📊</span>
               <span>Overview</span>
+            </a>
+
+            <a href="#strips" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
+              <span class="text-lg">🎛️</span>
+              <span>Status Pill Strips</span>
             </a>
 
             <a href="#marquee" class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-400 hover:bg-slate-700/50 hover:text-white font-medium transition-all">
@@ -242,6 +247,58 @@
                   <h3 class="text-3xl font-heading font-extrabold text-white">99.99%</h3>
                   <p class="text-xs text-slate-400 mt-1">Zero unplanned outages</p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-SYSTEM STATUS PILL STRIP (NEW v2.0.0) -->
+          <div id="strips" class="p-5 rounded-2xl bg-slate-800/60 dark:bg-slate-900/60 border border-slate-700/50 backdrop-blur-xl shadow-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-heading font-bold text-xs text-white uppercase tracking-wider">🎛️ Microservice Sub-System Status Strip</h3>
+              <span class="text-[10px] font-mono text-emerald-400">6 / 6 Operational</span>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <!-- Pill 1 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white">Auth &amp; OAuth 2.0</span>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">12ms</span>
+              </div>
+
+              <!-- Pill 2 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white">Edge CDN Proxy</span>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">14ms</span>
+              </div>
+
+              <!-- Pill 3 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white">PostgreSQL DB</span>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">6ms</span>
+              </div>
+
+              <!-- Pill 4 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white">Redis Queue</span>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">2ms</span>
+              </div>
+
+              <!-- Pill 5 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                <span class="font-bold text-white">Elastic Search</span>
+                <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">38ms</span>
+              </div>
+
+              <!-- Pill 6 -->
+              <div class="px-3.5 py-2 rounded-xl bg-slate-900/80 border border-slate-700/60 flex items-center space-x-2.5 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-white">Stripe Billing</span>
+                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">24ms</span>
               </div>
             </div>
           </div>
@@ -752,13 +809,13 @@
 
             <div class="space-y-3 font-mono text-xs">
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-indigo-400">[22:24:54] INFO: Interactive modal dialog system integrated.</span>
-                <span class="text-slate-500">task-6042</span>
+                <span class="text-emerald-400">[22:26:08] INFO: Sub-system status pill strip section integrated.</span>
+                <span class="text-slate-500">task-6065</span>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-700/40 flex items-center justify-between text-slate-300">
-                <span class="text-cyan-400">[22:23:41] INFO: Accordion system FAQ &amp; help docs integrated.</span>
-                <span class="text-slate-500">task-6015</span>
+                <span class="text-indigo-400">[22:24:54] INFO: Interactive modal dialog system integrated.</span>
+                <span class="text-slate-500">task-6042</span>
               </div>
             </div>
           </div>
@@ -773,7 +830,7 @@
       </div>
     </div>
 
-    <!-- EXPORT REPORT OVERLAY MODAL (NEW v1.9.0) -->
+    <!-- EXPORT REPORT OVERLAY MODAL -->
     <div id="exportModal" class="fixed inset-0 z-50 hidden transition-all duration-300">
       <!-- Backdrop Blur Overlay -->
       <div onclick="toggleModal('exportModal')" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm transition-opacity"></div>

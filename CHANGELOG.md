@@ -5,11 +5,16 @@ All notable changes to **Build 52 (ApexAdmin — Enterprise Tailwind CSS Admin D
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-07-29
+
+### Added
+- Integrated **Sub-System Status Pill Strip (`#strips`)**.
+- Added 6 operational status pills monitoring microservice health (Auth, CDN, DB, Redis, Elastic, Stripe API) with animated pulse indicators and latency badges.
+
 ## [1.9.0] - 2026-07-29
 
 ### Added
 - Integrated **Interactive Modal Dialog System (`#modals`)**.
-- Added encrypted audit log report export overlay modal with backdrop blur overlay and format selection dropdowns.
 
 ## [1.8.0] - 2026-07-29
 
