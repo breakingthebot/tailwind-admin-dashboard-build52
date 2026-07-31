@@ -2,9 +2,9 @@
 
 [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-000000?style=for-the-badge&logo=vercel)](https://tailwind-admin-dashboard-build52.vercel.app)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/breakingthebot/tailwind-admin-dashboard-build52)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/LICENSE)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-Utility--First-38BDF8?style=for-the-badge&logo=tailwindcss)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/index.html)
-[![Release](https://img.shields.io/badge/Release-v2.7.0-cyan?style=for-the-badge)](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/CHANGELOG.md)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/LICENSE)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-Utility--First-38BDF8?style=for-the-badge&logo=tailwindcss)](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/index.html)
+[![Release](https://img.shields.io/badge/Release-v2.7.0-cyan?style=for-the-badge)](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/CHANGELOG.md)
 
 ---
 
@@ -15,7 +15,7 @@
 ### 🌐 Live Production Demo
 - **Live Vercel Application**: [https://tailwind-admin-dashboard-build52.vercel.app](https://tailwind-admin-dashboard-build52.vercel.app)
 - **GitHub Codebase**: [https://github.com/breakingthebot/tailwind-admin-dashboard-build52](https://github.com/breakingthebot/tailwind-admin-dashboard-build52)
-- **License**: [MIT License](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/LICENSE)
+- **License**: [MIT License](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/LICENSE)
 
 ---
 
@@ -63,10 +63,10 @@ Build_52/
 - **📈 Pure Tailwind Bar Chart**: Data throughput visualization constructed using Tailwind height utilities (`h-64`, `bg-gradient-to-t`).
 - **🌐 Global Edge Telemetry**: Regional cluster health panels with animated pulse status indicators (`animate-pulse`).
 - **📋 Customer Deployment Table**: Structured data table featuring search filter pills, SLA metrics, and action buttons.
-- **📄 Open Source MIT License**: Free for commercial and personal usage ([LICENSE](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/LICENSE)).
+- **📄 Open Source MIT License**: Free for commercial and personal usage ([LICENSE](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/LICENSE)).
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See [LICENSE](file:///C:/Users/marve/Desktop/AI-286-Builds/Build_52/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/breakingthebot/tailwind-admin-dashboard-build52/blob/main/LICENSE) for more information.
